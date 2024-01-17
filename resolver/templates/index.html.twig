@@ -1,6 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    {% for message in app.flashes('error') %}
+        <div class="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                <p class="text-sm leading-6 text-gray-900">
+                    {{ message }}
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+
     <div class="relative sm:py-16">
         <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 transition duration-300 delay-0">
             <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
@@ -10,7 +20,7 @@
             <div class="m-auto space-y-8 sm:w-4/5 md:w-3/5 xl:w-2/5">
                 <div class="p-8 md:py-12">
                     <h2 class="mt-20 mb-8 text-3xl font-bold text-gray-800 dark:text-white">DNS Education Resolver</h2>
-                    <form action="{{ path('index') }}" method="POST" class="space-y-8">
+                    {{ form_start(form, {attr: {class: 'space-y-8'}}) }}
                         <div class="space-y-4">
                             <label for="code" class="text-gray-600 dark:text-gray-300">Quel est le code ?</label>
                             <div class="relative flex items-center">
@@ -19,7 +29,8 @@
                                 </svg>
                                 <input
                                         type="text"
-                                        name="code"
+                                        name="{{ field_name(form.code) }}"
+                                        value="{{ field_value(form.code) }}"
                                         id="code"
                                         placeholder="code à 14 chiffres"
                                         class="focus:outline-none block w-full rounded-full placeholder-gray-500 bg-gray-100 dark:bg-gray-800 dark:border-gray-600 pl-12 pr-4 h-12 text-gray-600 transition duration-300 invalid:ring-2 invalid:ring-red-400 focus:ring-2 focus:ring-primary"
@@ -34,10 +45,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center mb-4">
+                                <input id="default-checkbox" type="checkbox" name="{{ field_name(form.recursive) }}" value="{{ field_value(form.recursive) }}" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-checkbox" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Utiliser la resolution récursive ?</label>
+                            </div>
+                        </div>
                         <p class="text-gray-500 text-sm">
-                            Cette communication peut concerner l'authentification des diplômes et d'autres informations liées à vos qualifications éducatives. Votre consentement est essentiel pour bénéficier pleinement des services de vérification des diplômes proposés par notre site d'éducation.
-                        </p>
-                    </form>
+                        Cette communication peut concerner l'authentification des diplômes et d'autres informations liées à vos qualifications éducatives. Votre consentement est essentiel pour bénéficier pleinement des services de vérification des diplômes proposés par notre site d'éducation.
+                    </p>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
