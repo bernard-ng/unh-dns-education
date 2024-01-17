@@ -1,1 +1,5 @@
-.idea
+.idea/
+auth-server/.idea/
+resolver/.idea/
+root-server/.idea/
+tld-server/.idea/

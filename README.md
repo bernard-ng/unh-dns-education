@@ -1,0 +1,29 @@
+# DNS for Education
+
+Le Domain Name System (DNS) représente l'épine dorsale vitale d'Internet, offrant une infrastructure cruciale pour la résolution des noms de domaine en adresses IP et permettant ainsi une communication fluide entre les machines connectées au réseau mondial. Ce système ingénieux, conçu pour faciliter l'accessibilité et la convivialité d'Internet, opère comme une immense base de données distribuée. Son rôle central réside dans la traduction des noms de domaine lisibles par les humains en adresses IP compréhensibles par les ordinateurs.
+
+Au cœur du fonctionnement du DNS se trouve un ensemble complexe de serveurs répartis à travers le globe, organisés en une hiérarchie bien définie. Ces serveurs sont chargés de stocker et de gérer les informations relatives aux noms de domaine et à leurs correspondances avec les adresses IP. Le système DNS opère selon un modèle client-serveur, où les requêtes émises par les utilisateurs ou les applications sont acheminées vers les serveurs DNS pour obtenir les informations demandées.
+
+## Une application dans le domaine de l’éducation
+En effet, l'application du fonctionnement du DNS dans le domaine éducatif peut se matérialiser par la création de mécanismes de vérification pour les parcours scolaires ou les diplômes officiels. À titre d'exemple, un système de vérification basé sur le DNS pourrait permettre l'authentification des diplômes d'État en reliant de manière sécurisée des identifiants spécifiques à des enregistrements DNS, assurant ainsi l'intégrité et la validité des certificats obtenus par les étudiants. Cette utilisation du DNS pourrait garantir la traçabilité et la fiabilité des informations relatives aux parcours éducatifs, renforçant ainsi la confiance dans la certification des compétences et des qualifications académiques.
+
+Dans cette analogie, les serveurs racines du DNS peuvent être comparés à l'État dans le domaine éducatif. De même que les serveurs racines forment le point de départ de toute requête DNS, l'État constitue la référence initiale pour l'accréditation et la validation des diplômes et des cursus éducatifs. Ils établissent les normes et les protocoles fondamentaux nécessaires pour la reconnaissance des institutions éducatives et la délivrance des diplômes officiels.
+
+De manière similaire, les institutions éducatives, telles que les universités, les écoles professionnelles ou les lycées, agissent comme les serveurs de domaine de premier niveau (TLD). Ces établissements jouent un rôle crucial en validant et en authentifiant les compétences acquises par les étudiants, tout comme les serveurs TLD identifient et supervisent les domaines associés aux zones spécifiques du DNS.
+
+Les écoles individuelles, quant à elles, peuvent être assimilées aux serveurs autoritaires. Elles stockent et gèrent les enregistrements spécifiques, c'est-à-dire les diplômes et les informations relatives aux parcours scolaires des étudiants. Ces serveurs autoritaires, tout comme les écoles, possèdent l'autorité et la responsabilité de fournir des informations exactes et fiables concernant les performances et les réalisations académiques des individus.
+
+Ainsi, cette analogie entre le fonctionnement du DNS et le système éducatif met en lumière les rôles et les interactions entre les différents niveaux de gouvernance et d'accréditation. De la même manière que le DNS garantit la validité des correspondances entre les noms de domaine et les adresses IP, une utilisation appropriée et sécurisée du DNS dans le domaine de l'éducation pourrait contribuer à garantir l'authenticité et la légitimité des parcours académiques, renforçant ainsi la confiance dans l'obtention des diplômes et des qualifications
+
+
+## ECAS (Education Certificate Authentication System)
+ECAS (Education Certificate Authentication System) est une plateforme innovante développée en s'appuyant sur les principes et la structure du Domain Name System (DNS) pour assurer l'authentification, la certification et la validation des parcours académiques et des diplômes dans le domaine de l'éducation.
+
+À l'image du DNS qui assure la résolution des noms de domaine en adresses IP pour faciliter l'accès aux ressources en ligne, ECAS utilise une architecture similaire pour garantir l'authenticité et l'intégrité des certifications éducatives. Cette plateforme repose sur un système de validation centralisé et sécurisé, équivalent aux serveurs racines du DNS, qui établit les normes fondamentales et la validation initiale des informations éducatives.
+
+ECAS attribue des identifiants uniques et sécurisés à chaque certification ou parcours académique, agissant ainsi comme les enregistrements DNS. Ces identifiants sont associés à des informations spécifiques, telles que les détails des diplômes, les compétences acquises et les institutions éducatives concernées. De plus, ECAS garantit la traçabilité et la fiabilité de ces données en conservant un historique précis et inviolable, offrant ainsi une assurance de la validité des informations certifiées.
+
+Les institutions éducatives, équivalentes aux serveurs de domaine de premier niveau (TLD) du DNS, collaborent avec ECAS pour valider les certifications et garantir leur authenticité. Elles sont responsables de la délivrance et de la validation des diplômes, et elles contribuent à enrichir la base de données centralisée d'ECAS avec des informations précises et actualisées.
+
+De manière similaire aux serveurs autoritaires du DNS, chaque institution éducative partenaire d'ECAS possède son propre espace de gestion des données, stockant et mettant à jour les informations relatives aux diplômes délivrés et aux parcours académiques suivis par les étudiants. Ces espaces de stockage sécurisés assurent la confidentialité et l'intégrité des données tout en garantissant l'accès approprié aux informations pertinentes.
+
