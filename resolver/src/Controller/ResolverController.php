@@ -21,7 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 final class ResolverController extends AbstractController
 {
-    private const string ROOT_IP = '127.0.0.1';
+    private const string ROOT_IP = '192.168.1.10';
 
     #[Route('', name: 'index', methods: ['GET', 'POST'])]
     public function __invoke(Request $request): Response
@@ -49,16 +49,23 @@ final class ResolverController extends AbstractController
                 if (!empty($data)) {
                     $data['resolution_time'] = (string) $watch->getEvent('resolution');
                     $request->getSession()->set($query->code, $data);
-                    return $this->redirectToRoute('result.html.twig', ['code' => $query->code]);
+                    return $this->redirectToRoute('result', ['code' => $query->code], status: 303);
                 }
 
-                return $this->redirectToRoute('index');
+                return $this->redirectToRoute('index', status: 303);
             } catch (\Throwable $e) {
-                return $this->redirectToRoute('index');
+                return $this->redirectToRoute('index', status: 303);
             }
         }
 
         return $this->render('index.html.twig', ['form' => $form]);
+    }
+
+    #[Route('/clear', name: 'clear', methods: ['GET'])]
+    public function clear(Request $request): Response
+    {
+        $request->getSession()->clear();
+        return $this->redirectToRoute('index', status: 303);
     }
 
     #[Route('/result/{code}', name: 'result')]
@@ -76,8 +83,8 @@ final class ResolverController extends AbstractController
     {
         try {
            $rq = $client->request('GET', "http://" . (self::ROOT_IP) . ":8000/search/{$query->code}");
-           $tq = $client->request('GET', "http://127.0.0.1:8002/search/{$query->code}");
-           $aq = $client->request('GET', "http://127.0.0.1:8003/search/{$query->code}");
+           $tq = $client->request('GET', "http://{$rq->toArray()['ip_address']}:8000/search/{$query->code}");
+           $aq = $client->request('GET', "http://{$tq->toArray()['ip_address']}:8000/search/{$query->code}");
 
            return [
                'province' => $rq->toArray(),
@@ -95,7 +102,8 @@ final class ResolverController extends AbstractController
     private function recursive(QueryRecord $query, HttpClientInterface $client): array
     {
         try {
-            $rq = $client->request('GET', "http://" . (self::ROOT_IP) . ":8000/search/{$query->code}");
+            $rq = $client->request('GET', "http://" . (self::ROOT_IP) . ":8000/search/{$query->code}?recursive=1");
+            dd($rq->toArray());
             return $rq->toArray();
         } catch (\Throwable $e) {
             dump($e);

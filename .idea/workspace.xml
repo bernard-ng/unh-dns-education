@@ -5,14 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9e1b21a7-66f2-4d4a-bcee-e81bc50667f3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/resolver/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/config/packages/translation.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/auth-server/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth-server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/auth-server/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resolver/src/Controller/ResolverController.php" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/src/Controller/ResolverController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resolver/src/DataTransfert/QueryRecord.php" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/src/DataTransfert/QueryRecord.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resolver/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resolver/templates/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/templates/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resolver/templates/result.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/resolver/templates/result.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/root-server/src/Controller/RootController.php" beforeDir="false" afterPath="$PROJECT_DIR$/root-server/src/Controller/RootController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tld-server/src/Controller/TLDController.php" beforeDir="false" afterPath="$PROJECT_DIR$/tld-server/src/Controller/TLDController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root-server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/root-server/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/root-server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/root-server/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tld-server/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/tld-server/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tld-server/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/tld-server/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -330,6 +334,12 @@
       <path value="$PROJECT_DIR$/auth-server/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/auth-server/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/auth-server/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/root-server/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/root-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/auth-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/auth-server/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/tld-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/tld-server/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -376,7 +386,7 @@
       <workItem from="1705308729571" duration="17740000" />
       <workItem from="1705399550846" duration="887000" />
       <workItem from="1705515568272" duration="1193000" />
-      <workItem from="1705646239112" duration="4679000" />
+      <workItem from="1705646239112" duration="10882000" />
     </task>
     <servers />
   </component>

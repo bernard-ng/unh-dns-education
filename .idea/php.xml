@@ -304,6 +304,12 @@
       <path value="$PROJECT_DIR$/auth-server/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/auth-server/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/auth-server/vendor/symfony/process" />
+      <path value="$PROJECT_DIR$/root-server/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/root-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/auth-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/auth-server/vendor/symfony/http-client" />
+      <path value="$PROJECT_DIR$/tld-server/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/tld-server/vendor/symfony/http-client" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.3">
