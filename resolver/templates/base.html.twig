@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-mode="white">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}DNS Education Resolver{% endblock %}</title>
@@ -11,6 +11,11 @@
         {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
         <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'false',
+            }
+        </script>
     </head>
     <body class="min-h-screen flex flex-col justify-center bg-white dark:bg-gray-900">
         {% block body %}{% endblock %}

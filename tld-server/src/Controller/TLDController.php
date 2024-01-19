@@ -46,8 +46,14 @@ final class TLDController extends AbstractController
             try {
                 $client = HttpClient::create();
                 $response = $client->request('GET', "http://{$auth->getIpAddress()}:8000/search/{$code}?recursive=true");
-                return new JsonResponse($response->toArray(), $response->getStatusCode());
-            } catch (\Throwable $th) {
+
+                $data = [
+                    'student' => $response->toArray(),
+                ];
+
+                return new JsonResponse($data, $response->getStatusCode());
+            } catch (\Throwable $e) {
+                dump($e);
                 return new JsonResponse(['message' => 'Not Found'], 404);
             }
         }

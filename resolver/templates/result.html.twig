@@ -1,16 +1,41 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="relative sm:py-16">
-        <div aria-hidden="true" class="absolute inset-0 grid grid-cols-2 -space-x-52 opacity-40 transition duration-300 delay-0">
-            <div class="blur-[106px] h-56 bg-gradient-to-br from-primary to-purple-400 dark:from-blue-700"></div>
-            <div class="blur-[106px] h-32 bg-gradient-to-r from-pink-400 to-yellow-300"></div>
-        </div>
-        <div class="relative xl:container m-auto px-6 text-gray-500 md:px-12">
+    <div class="relative sm:py-2">
+        <div class="relative xl:container m-auto px-4 text-gray-500 md:px-12">
             <div class="m-auto space-y-8 sm:w-4/5 md:w-3/5 xl:w-2/5">
                 <div class="p-8 md:py-12">
-                    <h2 class="mt-20 mb-8 text-3xl font-bold text-gray-800 dark:text-white">DNS Education Resolver</h2>
-                    {{ dump(data) }}
+                    <h2 class="mt-20 mb-8 text-3xl font-bold text-gray-800 dark:text-white">Student Information</h2>
+                    <div class="shadow-sm p-6 border rounded-xl">
+                        <div class="mt-6 border-gray-100">
+                            <dl class="divide-y divide-gray-100">
+                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Province</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 dark:text-white sm:col-span-2 sm:mt-0">{{ data.province.name }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Code</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.province.code }}</dd>
+                                </div>
+                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">School</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.school.name }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Code</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.school.code }}</dd>
+                                </div>
+                                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Student</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.student.name }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Sex</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.student.sex }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Code</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.student.code }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Pourcentage</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.student.result }}</dd>
+                                    <dt class="text-sm font-medium leading-6 text-gray-900 dark:text-white">Year</dt>
+                                    <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 dark:text-white">{{ data.student.year }}</dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

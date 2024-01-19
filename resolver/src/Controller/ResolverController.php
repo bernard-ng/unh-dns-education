@@ -21,7 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 final class ResolverController extends AbstractController
 {
-    private const string ROOT_IP = '192.168.1.10';
+    private const string ROOT_IP = '127.0.0.1';
 
     #[Route('', name: 'index', methods: ['GET', 'POST'])]
     public function __invoke(Request $request): Response
@@ -32,17 +32,27 @@ final class ResolverController extends AbstractController
             ->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($request->getSession()->has($query->code)) {
+                return $this->redirectToRoute('result', ['code' => $query->code]);
+            }
+
             try {
                 $client = HttpClient::create();
                 $watch = new Stopwatch(true);
 
-                $response = $query->recursive ?
+                $watch->start('resolution');
+                $data = $query->recursive ?
                     $this->recursive( $query, $client) :
                     $this->iterative($query, $client);
-                $watch->start('resolution');
-                dump((string) $watch->getEvent('resolution'));
+                $watch->stop('resolution');
 
-                return $response;
+                if (!empty($data)) {
+                    $data['resolution_time'] = (string) $watch->getEvent('resolution');
+                    $request->getSession()->set($query->code, $data);
+                    return $this->redirectToRoute('result.html.twig', ['code' => $query->code]);
+                }
+
+                return $this->redirectToRoute('index');
             } catch (\Throwable $e) {
                 return $this->redirectToRoute('index');
             }
@@ -51,35 +61,46 @@ final class ResolverController extends AbstractController
         return $this->render('index.html.twig', ['form' => $form]);
     }
 
-    private function iterative(QueryRecord $query, HttpClientInterface $client): Response
+    #[Route('/result/{code}', name: 'result')]
+    public function result(string $code, Request $request): Response
+    {
+        if (!$request->getSession()->has($code)) {
+            return $this->redirectToRoute('index');
+        }
+
+        $data = $request->getSession()->get($code);
+        return $this->render('result.html.twig', ['data' => $data]);
+    }
+
+    private function iterative(QueryRecord $query, HttpClientInterface $client): array
     {
         try {
            $rq = $client->request('GET', "http://" . (self::ROOT_IP) . ":8000/search/{$query->code}");
-           $tq = $client->request('GET', "http://{$rq->toArray()['ip_address']}:8000/search/{$query->code}");
-           $aq = $client->request('GET', "http://{$tq->toArray()['ip_address']}:8000/search/{$query->code}");
+           $tq = $client->request('GET', "http://127.0.0.1:8002/search/{$query->code}");
+           $aq = $client->request('GET', "http://127.0.0.1:8003/search/{$query->code}");
 
-           $data = [
-               ...$tq->toArray(),
-               ...$aq->toArray()
+           return [
+               'province' => $rq->toArray(),
+               'school' => $tq->toArray(),
+               'student' => $aq->toArray()
            ];
 
-           return $this->render('result.html.twig', ['data' => $data]);
        } catch (\Throwable $e) {
+            dump($e);
            $this->addFlash('error', "Impossible de trouver l'enregistrement");
-           return $this->redirectToRoute('index');
+           return [];
        }
     }
 
-    private function recursive(QueryRecord $query, HttpClientInterface $client): Response
+    private function recursive(QueryRecord $query, HttpClientInterface $client): array
     {
         try {
             $rq = $client->request('GET', "http://" . (self::ROOT_IP) . ":8000/search/{$query->code}");
-            $data = $rq->toArray();
-
-            return $this->render('result.html.twig', ['data' => $data]);
+            return $rq->toArray();
         } catch (\Throwable $e) {
+            dump($e);
             $this->addFlash('error', "Impossible de trouver l'enregistrement");
-            return $this->redirectToRoute('index');
+            return [];
         }
     }
 }
